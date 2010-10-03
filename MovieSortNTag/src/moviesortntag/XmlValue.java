@@ -11,4 +11,10 @@ package moviesortntag;
  */
 public class XmlValue extends XmlElement {
 
+    @Override
+    public boolean isValue()
+    {
+        return true;
+    }
+
 }

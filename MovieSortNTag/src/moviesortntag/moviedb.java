@@ -35,12 +35,10 @@ public class moviedb {
 
 
 
-//    public static String movieSearch(String name)
-//    {
-//        String xml = movieSearchXml(name);
-//
-//
-//    }
+    public static SearchResult movieSearch(String name)
+    {
+        return SearchResult.parse(getStream("Movie.search",name));
+    }
 
     public static String movieSearchXml(String name)
     {

@@ -17,6 +17,7 @@ public class MovieSortNTagApp extends SingleFrameApplication {
      */
     @Override protected void startup() {
         show(new MovieSortNTagView(this));
+        new FrameMainLogic();
     }
 
     /**

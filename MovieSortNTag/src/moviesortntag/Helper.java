@@ -6,6 +6,8 @@
 package moviesortntag;
 
 import java.io.File;
+import java.io.FileFilter;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,25 +15,51 @@ import java.io.File;
  */
 public class Helper {
 
-    public File[] getMovieFiles(String path)
+    public static ArrayList<File> getMovieFiles(String path)
     {
+;
+
+        ArrayList<File> files = new ArrayList<File>();
+
         File dir = new File(path);
 
-        File files [] = dir.listFiles(new MovieFilter());
+        File[] allfiles = dir.listFiles();
+
+        for(int i=0;i<allfiles.length;i++)
+        {
+            if(isMovieFile(allfiles[i]))
+                files.add(allfiles[i]);
+            else if(allfiles[i].isDirectory())
+                files.addAll(getMovieFiles(allfiles[i].getAbsolutePath()));
+
+        }
 
         return files;
     }
 
-    public String[] getFileNames(File[] files)
+    public static String[] getFileNames(ArrayList<File> files)
     {
-        String[] filenames = new String[files.length];
+        String[] filenames = new String[files.size()];
 
-        for(int i=0;i<files.length;i++)
+        for(int i=0;i<files.size();i++)
         {
-            filenames[i] = files[i].getName();
+            filenames[i] = files.get(i).getName();
         }
 
         return filenames;
+    }
+
+    public static boolean isMovieFile(File f)
+    {
+        String[] movieFileExtensions = new String[]{".avi"};
+
+        for(int i=0;i<movieFileExtensions.length;i++)
+        {
+            if(f.getName().endsWith(movieFileExtensions[i]))
+                return true;
+        }
+
+        return false;
     }
 
 }

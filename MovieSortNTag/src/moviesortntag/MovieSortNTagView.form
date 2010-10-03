@@ -17,15 +17,16 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane3" pref="745" max="32767" attributes="0"/>
-                      <Component id="jScrollPane2" alignment="0" pref="745" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" pref="737" max="32767" attributes="0"/>
+                      <Component id="jScrollPane3" pref="737" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="LabelDbDir" min="-2" pref="560" max="-2" attributes="0"/>
-                          <EmptySpace pref="51" max="32767" attributes="0"/>
+                          <EmptySpace pref="43" max="32767" attributes="0"/>
                           <Component id="ButtonBrowseDBDir" min="-2" pref="28" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="ButtonImport" min="-2" pref="100" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="jTextField1" alignment="0" pref="737" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -34,24 +35,29 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <Component id="ButtonBrowseFiles" pref="26" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="538" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <Component id="jScrollPane2" min="-2" pref="85" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jScrollPane3" min="-2" pref="434" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="ButtonBrowseFiles" alignment="3" max="32767" attributes="0"/>
+                      <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="ButtonImport" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ButtonBrowseDBDir" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jScrollPane2" min="-2" pref="68" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jScrollPane3" min="-2" pref="414" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="ButtonImport" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ButtonBrowseDBDir" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="11" pref="11" max="11" attributes="0"/>
+                              </Group>
+                              <Component id="LabelDbDir" alignment="0" pref="38" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="11" pref="11" max="11" attributes="0"/>
                       </Group>
-                      <Component id="LabelDbDir" alignment="0" pref="34" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" alignment="1" min="-2" pref="538" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -89,9 +95,15 @@
         </Container>
         <Component class="javax.swing.JButton" name="ButtonBrowseFiles">
           <Properties>
+            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+              <action class="moviesortntag.MovieSortNTagView" id="selectFolder" methodName="selectFolder"/>
+            </Property>
             <Property name="text" type="java.lang.String" resourceKey="ButtonBrowseFiles.text"/>
             <Property name="name" type="java.lang.String" value="ButtonBrowseFiles" noResource="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ButtonBrowseFilesMouseClicked"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
           </AuxValues>
@@ -162,6 +174,12 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="4"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextField1">
+          <Properties>
+            <Property name="text" type="java.lang.String" resourceKey="jTextField1.text"/>
+            <Property name="name" type="java.lang.String" value="jTextField1" noResource="true"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -236,7 +254,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="statusMessageLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="802" max="32767" attributes="0"/>
+                  <EmptySpace pref="790" max="32767" attributes="0"/>
                   <Component id="progressBar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="statusAnimationLabel" min="-2" max="-2" attributes="0"/>

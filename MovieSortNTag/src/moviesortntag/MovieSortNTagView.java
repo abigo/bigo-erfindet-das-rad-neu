@@ -111,6 +111,7 @@ public class MovieSortNTagView extends FrameView {
         LabelDbDir = new javax.swing.JLabel();
         ButtonImport = new javax.swing.JButton();
         ButtonBrowseDBDir = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
         menuBar = new javax.swing.JMenuBar();
         javax.swing.JMenu fileMenu = new javax.swing.JMenu();
         javax.swing.JMenuItem exitMenuItem = new javax.swing.JMenuItem();
@@ -134,9 +135,16 @@ public class MovieSortNTagView extends FrameView {
         ListMovieFiles.setName("ListMovieFiles"); // NOI18N
         jScrollPane1.setViewportView(ListMovieFiles);
 
+        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(moviesortntag.MovieSortNTagApp.class).getContext().getActionMap(MovieSortNTagView.class, this);
+        ButtonBrowseFiles.setAction(actionMap.get("selectFolder")); // NOI18N
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(moviesortntag.MovieSortNTagApp.class).getContext().getResourceMap(MovieSortNTagView.class);
         ButtonBrowseFiles.setText(resourceMap.getString("ButtonBrowseFiles.text")); // NOI18N
         ButtonBrowseFiles.setName("ButtonBrowseFiles"); // NOI18N
+        ButtonBrowseFiles.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ButtonBrowseFilesMouseClicked(evt);
+            }
+        });
 
         jScrollPane2.setName("jScrollPane2"); // NOI18N
 
@@ -162,6 +170,9 @@ public class MovieSortNTagView extends FrameView {
         ButtonBrowseDBDir.setText(resourceMap.getString("ButtonBrowseDBDir.text")); // NOI18N
         ButtonBrowseDBDir.setName("ButtonBrowseDBDir"); // NOI18N
 
+        jTextField1.setText(resourceMap.getString("jTextField1.text")); // NOI18N
+        jTextField1.setName("jTextField1"); // NOI18N
+
         org.jdesktop.layout.GroupLayout mainPanelLayout = new org.jdesktop.layout.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
@@ -172,34 +183,38 @@ public class MovieSortNTagView extends FrameView {
                     .add(org.jdesktop.layout.GroupLayout.LEADING, jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(mainPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jScrollPane3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE)
-                    .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE)
+                    .add(jScrollPane2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 737, Short.MAX_VALUE)
+                    .add(jScrollPane3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 737, Short.MAX_VALUE)
                     .add(mainPanelLayout.createSequentialGroup()
                         .add(LabelDbDir, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 560, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 51, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 43, Short.MAX_VALUE)
                         .add(ButtonBrowseDBDir, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 28, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(ButtonImport, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                        .add(ButtonImport, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jTextField1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 737, Short.MAX_VALUE))
                 .addContainerGap())
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, mainPanelLayout.createSequentialGroup()
-                .add(ButtonBrowseFiles, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 538, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-            .add(mainPanelLayout.createSequentialGroup()
-                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 85, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(jScrollPane3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 434, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(mainPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(ButtonBrowseFiles, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(mainPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(mainPanelLayout.createSequentialGroup()
-                        .add(mainPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                            .add(ButtonImport)
-                            .add(ButtonBrowseDBDir))
-                        .add(11, 11, 11))
-                    .add(LabelDbDir, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)))
+                        .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 68, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                        .add(jScrollPane3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 414, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(mainPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(mainPanelLayout.createSequentialGroup()
+                                .add(mainPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                                    .add(ButtonImport)
+                                    .add(ButtonBrowseDBDir))
+                                .add(11, 11, 11))
+                            .add(LabelDbDir, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 538, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
         );
 
         menuBar.setName("menuBar"); // NOI18N
@@ -207,7 +222,6 @@ public class MovieSortNTagView extends FrameView {
         fileMenu.setText(resourceMap.getString("fileMenu.text")); // NOI18N
         fileMenu.setName("fileMenu"); // NOI18N
 
-        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(moviesortntag.MovieSortNTagApp.class).getContext().getActionMap(MovieSortNTagView.class, this);
         exitMenuItem.setAction(actionMap.get("quit")); // NOI18N
         exitMenuItem.setName("exitMenuItem"); // NOI18N
         fileMenu.add(exitMenuItem);
@@ -242,7 +256,7 @@ public class MovieSortNTagView extends FrameView {
             .add(statusPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(statusMessageLabel)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 802, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 790, Short.MAX_VALUE)
                 .add(progressBar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(statusAnimationLabel)
@@ -265,6 +279,14 @@ public class MovieSortNTagView extends FrameView {
         setStatusBar(statusPanel);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void ButtonBrowseFilesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonBrowseFilesMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonBrowseFilesMouseClicked
+
+    @Action
+    public void selectFolder() {
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     protected javax.swing.JButton ButtonBrowseDBDir;
     protected javax.swing.JButton ButtonBrowseFiles;
@@ -276,6 +298,7 @@ public class MovieSortNTagView extends FrameView {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JProgressBar progressBar;
